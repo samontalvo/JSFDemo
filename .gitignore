@@ -1,0 +1,43 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Ignorar archivos generados por el compilador Java
+*.class
+
+# Ignorar archivos de compilación
+bin/
+target/
+
+# Ignorar archivos de configuración de IDEs
+.idea/
+.vscode/
+
+# Ignorar archivos de construcción de Gradle
+.gradle/
+build/
+
+# Ignorar archivos de construcción de Maven
+target/
+*.iml
+*.ipr
+*.iws
+.idea
+*.class
+*.log
+
+# Ignorar archivos de dependencias de Maven
+lib/
+*.jar
+
+# Ignorar archivos de dependencias de Gradle
+.gradle
+build/
+
+#otros
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache

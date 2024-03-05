@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<!--ENVIO DE PARAMATROS CON JSF  -->
+		<h:outputLabel value="Nombre" />
+		<h:inputText value="#{pruebaBean.texto}" />
+		<h:commandButton value="Saludar" action="#{pruebaBean.saludar()}" />
+		<h:outputLabel value="#{pruebaBean.saludo}" />
+		<br/><br/>
+		<!--ENVIO DE PARAMATROS CON PRIMEFACES  -->
+		<p:outputLabel value="Nombre" />
+		<p:inputText value="#{pruebaBean.texto}" />
+		<p:commandButton value="Saludar" action="#{pruebaBean.saludar()}" update="lblSaludo"/>
+		<p:outputLabel id="lblSaludo" value="#{pruebaBean.saludo}" />
+		
+		<p:commandButton action="personas?faces-redirect=true" value="Navegar a personas" ajax="false"/>
+	</h:form>
+</body>
+</html>

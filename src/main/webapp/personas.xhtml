@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<h1>Personas</h1>
+	<h:form id="frm">
+		<p:dataTable value="#{personaBean.lista}" var="p" stickyHeader="true"
+			rows="10" paginator="true"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+			rowsPerPageTemplate="5,10,15">
+			<p:column headerText="ID">
+				<p:outputLabel value="#{p.idPersona}" />
+			</p:column>
+			<p:column headerText="Nombres">
+				<p:outputLabel value="#{p.nombres}" />
+			</p:column>
+			<p:column headerText="Apellidos">
+				<p:outputLabel value="#{p.apellidos}" />
+			</p:column>
+			<p:column headerText="Edad">
+				<p:outputLabel value="#{p.edad}" />
+			</p:column>
+			<p:column headerText="Accion">
+				<p:commandLink value="ver" oncomplete="PF('dlg').show()" actionListener="#{personaBean.enviar(p)}" update="frm:dialogo"/>
+			</p:column>
+		</p:dataTable>
+		<p:dialog id="dialogo" widgetVar="dlg" header="Elemento" modal="true" closeOnEscape="true" draggable="true" resizable="false" showEffect="explode">
+			#{personaBean.persona.idPersona}
+			#{personaBean.persona.nombres}
+			#{personaBean.persona.apellidos}
+			#{personaBean.persona.edad}
+		</p:dialog>
+	</h:form>
+</body>
+</html>
